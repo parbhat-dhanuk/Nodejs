@@ -2,7 +2,7 @@
 
 const mongoose= require('mongoose')
 
-const conn = "mongodb+srv://parbhat:parbhat@cluster0.atjcb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const conn = "mongodb+srv://parbhat:parbhat@cluster0.dg1h2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 async function connectToDatabase(){
     await mongoose.connect(conn)
