@@ -58,7 +58,36 @@ res.status(200).json({
 })
 
 
+//DELETE
 
+app.delete("/book/:id",async(req,res)=>{
+    const {id} = req.params
+    const book = await Book.findByIdAndDelete(id)
+    res.status(200).json({
+        message:"Book deleted successfully"
+    })
+})
+
+
+
+//Update
+
+app.patch("/book/:id",async(req,res)=>{
+    const {id} = req.params  //kun book update garne id ho yo
+    const {bookName,bookPrice,isbnNumber,authorName,publishedAt,publication} = req.body
+    await Book.findByIdAndUpdate(id,{
+        bookName,          
+        bookPrice,
+        isbnNumber,
+        authorName,
+        publishedAt,
+        publication
+
+    })
+    res.status(200).json({
+        message:"Book Updated Successfully"
+    })
+})
 
 app.listen(3000,()=>{
     console.log("running in port 3000")
