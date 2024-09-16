@@ -19,7 +19,13 @@ app.use(express.json())  //important line ho bisrinu vayena yo top mai hannu par
 
 connectToDatabase()
 
+//CORS Package
 
+const cors = require("cors")
+
+app.use(cors({
+    origin: "*"           //"http://localhost:5173/"
+}))
 
 //CREATE
 
@@ -45,7 +51,7 @@ app.post("/book", upload.single("image"), async (req,res)=>{
     })
 
     res.status(201).json({
-        message:"Book created successfully"
+        message:" Book created successfully"
     })
 })
 
