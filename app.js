@@ -13,6 +13,10 @@ const Book = require("./model/bookModel.js")
 const {multer,storage} = require("./middleware/multerConfig.js")
 const upload=multer({storage:storage})
 
+app.get("/",(req,res)=>{
+    res.send("Success")
+})
+
 
 app.use(express.json())  //important line ho bisrinu vayena yo top mai hannu paroe
 
@@ -78,7 +82,6 @@ res.status(200).json({
         data:book
 })
 })
-
 
 //DELETE
 
